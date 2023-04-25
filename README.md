@@ -25,7 +25,7 @@ Steps:
 Getting started
 ---------------
 **DEPENDENCIES**
-1. Gradle is required to be installed
+1. Gradle is required to be installed. Refer to https://gradle.org/install/
 
 **Executing**
 1. Provide username and password in config.propertied file (PATH: src/test/resources/config.properties)
