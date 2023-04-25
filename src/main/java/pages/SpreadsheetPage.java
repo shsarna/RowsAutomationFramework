@@ -14,8 +14,8 @@ public class SpreadsheetPage {
     GetElements getElements = new GetElements();
 
     public void selectInputFieldOptionFromInsertDropDownButton(){
-        getElements.findWebElement(driver,"xpath",SpreadsheetPageElements.insertDropDownButton).click();
-        getElements.findWebElement(driver,"xpath",SpreadsheetPageElements.inputFieldOption).click();
+        SeleniumUtils.clickAndWait(driver,getElements.findWebElement(driver,"xpath",SpreadsheetPageElements.insertDropDownButton));
+        SeleniumUtils.clickAndWait(driver,getElements.findWebElement(driver,"xpath",SpreadsheetPageElements.inputFieldOption));
     }
 
     public String getSpreadSheetName(){

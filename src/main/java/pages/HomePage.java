@@ -3,6 +3,7 @@ package pages;
 import locators.HomePageElements;
 import org.openqa.selenium.WebElement;
 import utils.GetElements;
+import utils.SeleniumUtils;
 
 import static utils.BaseTest.driver;
 
@@ -17,7 +18,7 @@ public class HomePage {
     }
 
     public void clickCreateSpreadsheetButton(){
-        getElements.findWebElement(driver, "css",HomePageElements.createSpreadsheetButton).click();
+        SeleniumUtils.clickAndWait(driver,getElements.findWebElement(driver, "css",HomePageElements.createSpreadsheetButton));
     }
 
     public void openSpreadSheetByName(String name){
