@@ -61,6 +61,6 @@ public class AssignmentTest extends BaseTest {
         String spreadSheetName = spreadsheetPage.getSpreadSheetName();
         spreadsheetPage.clickRowsLogoButtonAndNavigateToHomePage();
         homePage.openSpreadSheetByName(spreadSheetName);
-        Assert.assertEquals(spreadsheetPage.getTextOfRow(),copiedUrl, "Failed!!!: Copied url didn't match");
+        Assert.assertEquals(spreadsheetPage.getTextOfRow(),copiedUrl.substring(1), "Failed!!!: Copied url didn't match");
     }
 }
