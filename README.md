@@ -1,6 +1,6 @@
 # RowsAutomationFramework
 
-This Repository consists of two test scenarios provided by Rows for assessment. Thw two test scenarios are related to the steps mentioned below: 
+This repository contains two test scenarios provided by Rows for assessment. The two test scenarios are related to the following steps:
 **Scenario 1**
 Steps:
 1. Login
