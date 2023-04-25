@@ -2,30 +2,33 @@ package pages;
 
 import locators.TemplatesPageElements;
 import org.openqa.selenium.WebElement;
+import utils.GetElements;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class TemplatesPage extends BasePage{
+import static utils.BaseTest.driver;
+
+public class TemplatesPage {
+    GetElements getElements = new GetElements();
 
     public void clickIntegrationsDropDownButton(){
-        getElements.findWebElement("xpath", TemplatesPageElements.integrationDropDownButton).click();
+        getElements.findWebElement(driver,"xpath", TemplatesPageElements.integrationDropDownButton).click();
     }
 
     public String getIntegrationSelectedValue(){
-        return getElements.findWebElement("css",TemplatesPageElements.integrationBox).getAttribute("placeholder");
+        return getElements.findWebElement(driver,"css",TemplatesPageElements.integrationBox).getAttribute("placeholder");
     }
 
     private List<WebElement> getListOfElementsOfIntegrations(){
-        return getElements.findListOfWebElements("xpath",TemplatesPageElements.integrationsList);
+        return getElements.findListOfWebElements(driver,"xpath",TemplatesPageElements.integrationsList);
     }
 
     public void selectIntegration(String integrationName){
-        getElements.findWebElement("xpath","//span[text()='"+integrationName+"']").click();
+        getElements.findWebElement(driver,"xpath","//span[text()='"+integrationName+"']").click();
     }
 
     private List<WebElement> getListOfElementsOfTemplates(){
-        return getElements.findListOfWebElements("css",TemplatesPageElements.templatesList);
+        return getElements.findListOfWebElements(driver,"css",TemplatesPageElements.templatesList);
     }
 
     public void clickLastElementOfTemplates(){

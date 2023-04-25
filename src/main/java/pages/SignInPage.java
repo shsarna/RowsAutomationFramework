@@ -1,12 +1,16 @@
 package pages;
 
 import locators.SignInPageElements;
+import utils.GetElements;
 
-public class SignInPage extends BasePage {
+import static utils.BaseTest.driver;
+
+public class SignInPage {
+    GetElements getElements = new GetElements();
 
     public void enterCredentialsAndSignIn(String username, String password){
-        getElements.findWebElement("id", SignInPageElements.emailTextBox).sendKeys(username);
-        getElements.findWebElement("id",SignInPageElements.passwordTextBox).sendKeys(password);
-        getElements.findWebElement("css",SignInPageElements.signInButton).click();
+        getElements.findWebElement(driver,"id", SignInPageElements.emailTextBox).sendKeys(username);
+        getElements.findWebElement(driver,"id",SignInPageElements.passwordTextBox).sendKeys(password);
+        getElements.findWebElement(driver,"css",SignInPageElements.signInButton).click();
     }
 }

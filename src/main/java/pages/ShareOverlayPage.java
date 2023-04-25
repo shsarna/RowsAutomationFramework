@@ -1,30 +1,23 @@
 package pages;
 
-import locators.RetweetsTrackerElements;
 import locators.ShareOverlayElements;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
+import utils.GetElements;
+import utils.SeleniumUtils;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
+import static utils.BaseTest.driver;
 
-public class ShareOverlayPage extends BasePage{
+public class ShareOverlayPage {
+    GetElements getElements = new GetElements();
 
     public void enableSharePrivatelyToggle(){
-        getElements.findWebElement("css", ShareOverlayElements.shareWithLinkToggle).click();
+        getElements.findWebElement(driver,"css", ShareOverlayElements.shareWithLinkToggle).click();
     }
 
     public void copyLink() {
-        getElements.findWebElement("css", ShareOverlayElements.copyLinkButton).click();
+        getElements.findWebElement(driver,"css", ShareOverlayElements.copyLinkButton).click();
     }
 
     public void closeShareOverlay(){
-        getElements.findWebElement("css", ShareOverlayElements.closeOverlayButton).click();
+        SeleniumUtils.clickAndWait(driver,getElements.findWebElement(driver,"css", ShareOverlayElements.closeOverlayButton));
     }
 }

@@ -1,30 +1,37 @@
 package pages;
 
-import locators.HomePageElements;
 import locators.RetweetsTrackerElements;
+import utils.GetElements;
+import utils.SeleniumUtils;
 
-public class RetweetsTrackerPage extends BasePage{
+import static utils.BaseTest.driver;
+
+public class RetweetsTrackerPage {
+    GetElements getElements = new GetElements();
+    SeleniumUtils seleniumUtils = new SeleniumUtils();
+
 
     public String getPageTitle(){
-        return getElements.findWebElement("css", RetweetsTrackerElements.pageTitle).getText();
+        return getElements.findWebElement(driver,"css", RetweetsTrackerElements.pageTitle).getText();
     }
 
     public String getSharedPageTitle(){
-        return getElements.findWebElement("css", RetweetsTrackerElements.sharedRetweetTrackerPage).getText();
+        return getElements.findWebElement(driver,"css", RetweetsTrackerElements.sharedRetweetTrackerPage).getText();
     }
     public void clickUseTemplateButton(){
-        getElements.findWebElement("css", RetweetsTrackerElements.useTemplateButton).click();
+        getElements.findWebElement(driver,"css", RetweetsTrackerElements.useTemplateButton).click();
     }
 
     public void clickCreateSpreadsheetButton(){
-        getElements.findWebElement("css", RetweetsTrackerElements.createSpreadsheetButton).click();
+        getElements.findWebElement(driver,"css", RetweetsTrackerElements.createSpreadsheetButton).click();
     }
 
     public void clickShareButton(){
-        getElements.findWebElement("css", RetweetsTrackerElements.shareButton).click();
+        getElements.findWebElement(driver,"css", RetweetsTrackerElements.shareButton).click();
     }
 
-    public void gotoHomePage(){
-        getElements.findWebElement("css", RetweetsTrackerElements.logoLink).click();
+    public void clickRowsLogoButtonAndNavigateToHomePage(){
+        seleniumUtils.waitForVisibilityOfElement(driver, getElements.findWebElement(driver,"css", RetweetsTrackerElements.logoLink));
+        getElements.findWebElement(driver,"css", RetweetsTrackerElements.logoLink).click();
     }
 }

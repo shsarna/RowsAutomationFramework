@@ -2,7 +2,7 @@ package locators;
 
 public interface SignInPageElements {
 
-    public String emailTextBox = "email";
-    public String passwordTextBox = "password";
-    public String signInButton = "button[type='submit']";
+    String emailTextBox = "email";
+    String passwordTextBox = "password";
+    String signInButton = "button[type='submit']";
 }

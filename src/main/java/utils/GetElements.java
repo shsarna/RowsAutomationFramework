@@ -2,47 +2,35 @@ package utils;
 
 import org.openqa.selenium.By;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import test.BaseTest;
 
 import java.util.List;
 
 public class GetElements {
+    public By get(String locatorType, String locatorValue) {
 
-    public WebElement findWebElement(String locatorType, String locatorValue){
-        switch (locatorType)
-        {
-            case "id":
-                return BaseTest.driver.findElement(By.id(locatorValue));
-            case "css":
-                    return BaseTest.driver.findElement(By.cssSelector(locatorValue));
-            case "classname":
-                return BaseTest.driver.findElement(By.className(locatorValue));
-            case "xpath":
-                return BaseTest.driver.findElement(By.xpath(locatorValue));
-            case "name":
-                return BaseTest.driver.findElement(By.name(locatorValue));
-            default:
-                return null;
-        }
+        return switch (locatorType) {
+            case "id" -> By.id(locatorValue);
+            case "name" -> By.name(locatorValue);
+            case "class", "class name" -> By.className(locatorValue);
+            case "tag", "tag name" -> By.tagName(locatorValue);
+            case "link", "link text" -> By.linkText(locatorValue);
+            case "partial link", "partial link text" -> By.partialLinkText(locatorValue);
+            case "css", "css selector" -> By.cssSelector(locatorValue);
+            case "xpath" -> By.xpath(locatorValue);
+            default -> throw new IllegalArgumentException("Invalid locator type: " + locatorType);
+        };
     }
 
-
-    public List<WebElement>findListOfWebElements(String locatorType, String locatorValue){
-        switch (locatorType)
-        {
-            case "id":
-                return BaseTest.driver.findElements(By.id(locatorValue));
-            case "css":
-                return BaseTest.driver.findElements(By.cssSelector(locatorValue));
-            case "classname":
-                return BaseTest.driver.findElements(By.className(locatorValue));
-            case "xpath":
-                return BaseTest.driver.findElements(By.xpath(locatorValue));
-            case "name":
-                return BaseTest.driver.findElements(By.name(locatorValue));
-            default:
-                return null;
-        }
+    public WebElement findWebElement(WebDriver driver, String locatorType, String locatorValue) {
+        By locator = get(locatorType, locatorValue);
+        return driver.findElement(locator);
     }
+
+    public List<WebElement> findListOfWebElements(WebDriver driver, String locatorType, String locatorValue) {
+        By locator = get(locatorType, locatorValue);
+        return driver.findElements(locator);
+    }
+
 }
